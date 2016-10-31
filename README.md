@@ -5,3 +5,4 @@ Project 2
 Group members:
 
 Nan Bai  nanbai@csu.fullerton.edu
+Ting Li  litingcherry@csu.fullerton.edu
