@@ -1,0 +1,19 @@
+Undefined symbols for architecture x86_64:
+  "ChutesAndLaddersGame::playGame()", referenced from:
+      checkChutesAndLaddersGame() in PlayChutesAndLaddersGame-88334d.o
+      _main in PlayChutesAndLaddersGame-88334d.o
+  "ChutesAndLaddersGame::resetGame()", referenced from:
+      checkChutesAndLaddersGame() in PlayChutesAndLaddersGame-88334d.o
+      _main in PlayChutesAndLaddersGame-88334d.o
+  "ChutesAndLaddersGame::ChutesAndLaddersGame(int)", referenced from:
+      checkChutesAndLaddersGame() in PlayChutesAndLaddersGame-88334d.o
+      _main in PlayChutesAndLaddersGame-88334d.o
+  "ChutesAndLaddersGame::~ChutesAndLaddersGame()", referenced from:
+      checkChutesAndLaddersGame() in PlayChutesAndLaddersGame-88334d.o
+      _main in PlayChutesAndLaddersGame-88334d.o
+  "Player::operator=(Player const&)", referenced from:
+      checkPlayer() in PlayChutesAndLaddersGame-88334d.o
+  "GameBoard::buildBoard()", referenced from:
+      GameBoard::GameBoard() in PlayChutesAndLaddersGame-88334d.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)

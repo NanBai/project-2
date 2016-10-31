@@ -13,5 +13,7 @@
 // TO DO: implement this method
 void GameBoard::buildBoard() {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   for (int i = 1; i < BOARD_SIZE; i++){
+      squares.insert(i-1, i);
+   }
 }

@@ -22,7 +22,10 @@ public:
    // TO DO: implement this constructor
    Player(string name) {
       // TODO: implement this function properly
-      throw std::logic_error("not implemented yet");
+      if (playerName == name)
+      throw std::logic_error("Name has already been used!");
+      playerName = name;
+      position = 0;
    }
    
    // copy constructor
@@ -30,7 +33,11 @@ public:
    // TO DO: implement Player's copy constructor
    Player(const Player &p) {
       // TODO: implement this function properly
-      throw std::logic_error("not implemented yet");
+      if (playerName == p.playerName)
+      throw std::logic_error("Name has existed!");
+      playerName = p.playerName;
+      position = p.position;
+      die = p.die;
    }
    
    // assignment constructor

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const int MONTE_CARLO = 100;
+static const int MONTE_CARLO = 100;
 
 void checkGameBoard() {
    // Check if game board is constructed properly
@@ -91,7 +91,7 @@ void checkPlayer() {
    cout << "Player name: " << player.getName() << endl;
    cout << "Player's postion: " << player.getPostion() << endl;
    cout << "Player die's face value: " << player.getDie().getFaceValue() << endl;
-   
+
    // set player's position to a new value to test copy constructor
    player.setPostion(9);
    // test copy constructor
@@ -122,13 +122,13 @@ void checkChutesAndLaddersGame() {
    cout << ">> test destructor" << endl;
    ChutesAndLaddersGame *myGame2 = new ChutesAndLaddersGame();
    delete myGame2;
-   
+
    // check ChutesAndLaddersGame's constructor with number of players input
    cout << ">> my first game:" << endl;
    ChutesAndLaddersGame myGame;
    assert(myGame.getNumberOfPlayers() == MIN_NUMBER_OF_PLAYERS);
    cout << "Number of players: " << myGame.getNumberOfPlayers() << endl;
-   
+
    // test playGame
    // always start with seed 1, so should have the same result each time playGame is executed
    srand( (static_cast<unsigned int>(1)) ); // initialize random seed of 1
@@ -145,7 +145,7 @@ void checkChutesAndLaddersGame() {
    anotherGame.playGame();
    // test the winners of the 2 games
    assert(myGame.getWinner() == anotherGame.getWinner());
-   
+
 
    cout << ">> test resetPlayersPosition:" << endl;
    // reset players position
@@ -155,11 +155,11 @@ void checkChutesAndLaddersGame() {
    srand( (static_cast<unsigned int>(1)) ); // initialize random seed to 1
    myGame.playGame();
    assert(myGame.getWinner() == myWinner);
-   
+
 }
 
 int main() {
-   
+
    cout << "*** Check GameBoard ***" << endl;
    {
       checkGameBoard();
@@ -171,13 +171,13 @@ int main() {
       checkPlayer();
    }
    cout << endl;
-   
+
    cout << "*** Check ChutesAndLaddersGame ***" << endl;
    {
       checkChutesAndLaddersGame();
    }
    cout << endl;
-   
+
    // Now, do monte carlo simulation of the Chutes and Ladders game
    cout << "===== Play the Chutes and Ladders Game " << MONTE_CARLO << " times =====" << endl;
    cout << "        (results should be different)" << endl << endl;
@@ -192,6 +192,6 @@ int main() {
       chutesAndLaddersGame->resetGame();
    } // end while(iMonteCarlo)
    delete chutesAndLaddersGame;
-   
-   
+
+
 }

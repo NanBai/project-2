@@ -30,6 +30,6 @@ public:
       return faceValue;
    }
 private:
-   const int MAX_FACE_VALUE = 6;
+   static const int MAX_FACE_VALUE = 6;
    int faceValue;
 };
