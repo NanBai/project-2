@@ -43,29 +43,19 @@ public:
    // TODO: implement this function properly
    // play the Chutes and Ladders game
    void playGame();
-   const void addMembers(int _nPlayers){
-     players[0].setName("Nan");
-     players[1].setName("Ellie");
-     for (int i = 0; i < _nPlayers; i++){
-     playerOrder.enqueue(players[i].getName());}
+   
+   void addMembers(){
+      Player player1("Nan");
+      Player player2("Ellie");
+      playerOrder.enqueue(player1);
+      playerOrder.enqueue(player2);
    }
-
-   bool haveWinner() {
-     for (int i = 0; i < getNumberOfPlayers(); i++){
-       if (players[i].getPostion() == WINNING_POSITION){
-         winner = players[i].getName();
-         return true;
-       }
-     }
-     return false;
-   }
-
+   
 private:
    static const int WINNING_POSITION = 100;
 
    string winner;       // the winner
    GameBoard gameBoard; // the game board
-   ArrayQueue<string> playerOrder;
+   ArrayQueue<Player> playerOrder;
    // TO DO: use ArrayQueue to store the players
-   Player *players;
 };

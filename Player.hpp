@@ -33,8 +33,6 @@ public:
    // TO DO: implement Player's copy constructor
    Player(const Player &p) {
       // TODO: implement this function properly
-      if (playerName == p.playerName)
-      throw std::logic_error("Name has existed!");
       playerName = p.playerName;
       position = p.position;
       die = p.die;

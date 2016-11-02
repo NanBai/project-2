@@ -7,6 +7,7 @@
 #include <stdlib.h>     /* rand */
 #include <random> /* for mindstd_rand0 */
 
+
 class Die {
 public:
    Die() { roll(); }

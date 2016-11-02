@@ -7,8 +7,6 @@
 // TO DO: implement Player's assignment operator
 Player& Player::operator=(const Player& p) {
    // TODO: implement this function properly
-   if (playerName == p.playerName)
-   throw std::logic_error("Name has existed!");
    if (&p != this){
       playerName = p.playerName;
       position = p.position;
@@ -25,10 +23,14 @@ Player& Player::operator=(const Player& p) {
 int Player::rollDieAndMove() {
    // TODO: implement this function properly
    if (position > 100 || position < 0)
-   throw std::logic_error("Position out of board!");
-   if (position + die.getFaceValue() > 100){
+   throw std::length_error("Position out of board!");
+   GameBoard check;
+   die.roll();
+   int temp = position + die.getFaceValue();
+   if (temp > 100){
       return position;
    };
-   position = position + die.getFaceValue();
+   temp = check.checkChutesLadders(temp);
+   position = temp;
       return position;
 }
