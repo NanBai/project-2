@@ -20,7 +20,7 @@ public:
    // parametrized constructor with name
    // player's initial position is at the figurative square 0
    // TO DO: implement this constructor
-   Player(string name) {
+   Player(string name) {                                          //construtor initialization
       // TODO: implement this function properly
       if (playerName == name)
       throw std::logic_error("Name has already been used!");
@@ -31,7 +31,7 @@ public:
    // copy constructor
    // Player should make player's own copy of the die
    // TO DO: implement Player's copy constructor
-   Player(const Player &p) {
+   Player(const Player &p) {                                    //copy construtor
       // TODO: implement this function properly
       playerName = p.playerName;
       position = p.position;

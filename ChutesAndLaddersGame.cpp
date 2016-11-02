@@ -15,16 +15,16 @@ using namespace std;
 // constructor with the default value of a minimum players
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
    // TODO: implement this function properly
-   ArrayQueue<Player> playerOrder(nPlayers);
-   addMembers();
+   ArrayQueue<Player> playerOrder(nPlayers);      //initialize the player order array queue
+   addMembers();                                  //call add player members function
 }
 
 // TODO: implement the destructor
 // destructor - dequeue players from the queue
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
    // TODO: implement this function properly
-   while (!playerOrder.empty()){
-      playerOrder.dequeue();
+   while (!playerOrder.empty()){                  //judge the statement if the queue is empty or not
+      playerOrder.dequeue();                      //if not empty, dequeue from the queue
    }
 }
 
@@ -34,14 +34,14 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 //        Place all players at the figurative square zero
 void ChutesAndLaddersGame::resetGame() {
    // TODO: implement this function properly
-   if (playerOrder.empty())
-   throw std::logic_error("Not enough players!");
-   Player tmp;
-   while (playerOrder.front().getPostion() != 0) {
-   tmp = playerOrder.front();
-   playerOrder.dequeue();
-   tmp.setPostion(0);
-   playerOrder.enqueue(tmp);   
+   if (playerOrder.size() < 2)                        //check if there is enough players
+   throw std::logic_error("Not enough players!");   // if empty, throw a exception error
+   Player tmp;                                     //declare a temporary Player type variable
+   while (playerOrder.front().getPostion() != 0) { //judge statement: if player's position is at 0 square or not
+   tmp = playerOrder.front();                       //use the temporary variable to store the front element in the queue
+   playerOrder.dequeue();                           //dequeue the front element in the queue
+   tmp.setPostion(0);                              //set the player's position to 0 square
+   playerOrder.enqueue(tmp);                        //enqueue the player's info from the temporary variable
    }
 }
 
@@ -57,18 +57,17 @@ void ChutesAndLaddersGame::resetGame() {
 //    - playGame returns after congratulating and printing the winner's name
 void ChutesAndLaddersGame::playGame() {
    // TODO: implement this function properly
-   if (playerOrder.empty())
-   throw std::logic_error("Not enough players.");
-   Player tmp;
-   int tmpPosition;
-   while (playerOrder.front().getPostion() != WINNING_POSITION) {
-      tmp = playerOrder.front();
-//       cout << playerOrder.front().getName() << "'s position is at " << playerOrder.front().getPostion() << endl;
-      playerOrder.dequeue();
-      tmp.rollDieAndMove();
-      playerOrder.enqueue(tmp);
+   if (playerOrder.size() < 2)                          //check if there is enough players
+   throw std::logic_error("Not enough players.");       //if not, throw an exception error
+   Player tmp;                                          //declare a temporary Player type variable to store the front player
+   while (playerOrder.front().getPostion() != WINNING_POSITION) {    //judge statement: check if there is a player at
+                                                                     // the winning position
+      tmp = playerOrder.front();                        //use the temporary to store the front element in the queue
+      playerOrder.dequeue();                            //dequeue the front element in the queue
+      tmp.rollDieAndMove();                             //player's turn to roll die and move
+      playerOrder.enqueue(tmp);                         //enqueue the player to wait his/her turn 
    }
-   winner = playerOrder.front().getName();
+   winner = playerOrder.front().getName();              //assign the winner player's name to the winner variable
    cout << ">> Congratulation! <<" << endl;
    cout << "The winner is > " << winner << " < !" << endl;
 }

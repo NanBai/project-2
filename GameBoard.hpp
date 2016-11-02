@@ -23,8 +23,8 @@ public:
 
    GameBoard() {
       // TODO: implement this function properly
-      ExtendableVector<int> squares(100);
-      buildBoard();
+      ExtendableVector<int> squares(100);               //initialize the square
+      buildBoard();                                     //build the game board
    }
 
    // If player lands on chutes or ladders, returns the new position.
@@ -36,8 +36,8 @@ public:
          throw range_error("index out of bounds");
       }
       // TODO: implement this function properly
-      switch (position) {
-         case ONE: return 38; break;
+      switch (position) {                              //check the position: if it's a chute, then slide down; if 
+         case ONE: return 38; break;                   //it's a ladder, then climb up
          case FOUR: return 14; break;
          case NINE: return 31; break;
          case TWENTY_ONE: return 42; break;

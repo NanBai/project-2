@@ -30,9 +30,9 @@ public:
    // TO DO: implement the accessor to get the number Of Players
    long getNumberOfPlayers() {
       // TODO: implement this function properly
-      if (playerOrder.size() < 2)
-      {throw std::logic_error("Not enough players!");}
-      return playerOrder.size();
+      if (playerOrder.size() < 2)                           //check if there is enough players
+      {throw std::logic_error("Not enough players!");}      //if not, throw an error exception
+      return playerOrder.size();                            
    }
    string getWinner() { return winner; }
 
@@ -44,8 +44,8 @@ public:
    // play the Chutes and Ladders game
    void playGame();
    
-   void addMembers(){
-      Player player1("Nan");
+   void addMembers(){                                       //a function to add team members into the player array queue
+      Player player1("Nan");                                 
       Player player2("Ellie");
       playerOrder.enqueue(player1);
       playerOrder.enqueue(player2);
